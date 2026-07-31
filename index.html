@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>the venture house</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: #000;
+      color: #e8e8e8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+
+    /* Image displayed at this width */
+    .house {
+      display: block;
+      width: min(420px, 90vw);
+      margin-bottom: 32px;
+    }
+
+    /*
+      Building occupies 80.3% of the image (left 10.1%, right 9.6% are transparent).
+      So content width = 80.3% of image width = min(337px, 72.3vw)
+    */
+    .content {
+      width: min(337px, 72.3vw);
+    }
+
+    h1 {
+      font-size: 11px;
+      font-weight: 400;
+      color: #555;
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .name {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .cursor {
+      animation: blink 1.2s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .address {
+      color: #555;
+      font-size: 11px;
+      margin-bottom: 40px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding-top: 20px;
+    }
+
+    .footer a {
+      font-size: 11px;
+      font-weight: 700;
+      color: #e8e8e8;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .footer a:hover { opacity: 0.5; }
+  </style>
+</head>
+<body>
+
+  <img class="house" src="40qs_clean.png" alt="the venture house" />
+
+  <div class="content">
+    <h1>// welcome to</h1>
+    <div class="name">the venture house<span class="cursor">.</span></div>
+    <div class="address">Shoreditch, London</div>
+
+    <div class="footer">
+      <a href="https://lu.ma" target="_blank" rel="noopener noreferrer">luma</a>
+      <a href="moments.html">moments</a>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>the venture house</title>
+  <title>quilter, the venture house</title>
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="apple-touch-icon" href="assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,7 +39,7 @@
     }
 
     .content {
-      width: min(337px, 72.3vw);
+      width: min(440px, 90vw);
     }
 
     .eyebrow {
@@ -51,11 +51,12 @@
     }
 
     .title {
-      font-size: 26px;
+      font-size: clamp(16px, 6vw, 26px);
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.1;
       margin-bottom: 6px;
+      white-space: nowrap;
     }
 
     .cursor {
@@ -94,11 +95,11 @@
 </head>
 <body>
 
-  <img class="house" src="assets/house.png" alt="the venture house" />
+  <img class="house" src="assets/house.png" alt="quilter, the venture house" />
 
   <div class="content">
     <p class="eyebrow">// welcome to</p>
-    <p class="title">the venture house<span class="cursor">.</span></p>
+    <p class="title">quilter, the venture house<span class="cursor">.</span></p>
     <p class="location">Shoreditch, London</p>
 
     <nav class="nav">

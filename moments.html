@@ -29,18 +29,34 @@
       justify-content: center;
     }
 
-    a {
+    .message {
       font-size: 11px;
       color: #444;
-      text-decoration: none;
       letter-spacing: 0.08em;
-      transition: color 0.2s;
     }
 
-    a:hover { color: #e8e8e8; }
+    .home-mark {
+      position: absolute;
+      top: calc(50% + 226px);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .home-mark:hover { opacity: 1; }
+
+    .home-mark svg { display: block; width: 18px; height: 18px; }
   </style>
 </head>
 <body>
-  <a href="/">social #1 out soon</a>
+  <p class="message">social #1 out soon</p>
+
+  <a class="home-mark" href="/" aria-label="back to home">
+    <svg viewBox="0 0 52 52" fill="none">
+      <polygon points="26,4 29.4,17.7 41.6,10.4 34.3,22.6 48,26 34.3,29.4 41.6,41.6 29.4,34.3 26,48 22.6,34.3 10.4,41.6 17.7,29.4 4,26 17.7,22.6 10.4,10.4 22.6,17.7" fill="#e8e8e8"/>
+    </svg>
+  </a>
 </body>
 </html>

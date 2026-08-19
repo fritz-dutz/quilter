@@ -29,7 +29,10 @@
       justify-content: center;
     }
 
-    a {
+    .back {
+      position: absolute;
+      top: 24px;
+      left: 24px;
       font-size: 11px;
       color: #444;
       text-decoration: none;
@@ -37,10 +40,58 @@
       transition: color 0.2s;
     }
 
-    a:hover { color: #e8e8e8; }
+    .back:hover { color: #e8e8e8; }
+
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px 48px;
+      max-width: min(480px, 90vw);
+    }
+
+    .person {
+      text-align: center;
+      min-width: 110px;
+    }
+
+    .person-name {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #e8e8e8;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+      margin-bottom: 4px;
+    }
+
+    .person-name:hover { opacity: 0.5; }
+
+    .person-fund {
+      font-size: 11px;
+      font-weight: 400;
+      color: #555;
+      letter-spacing: 0.05em;
+    }
   </style>
 </head>
 <body>
-  <a href="/">stay tuned</a>
+  <a class="back" href="/">← home</a>
+
+  <div class="team">
+    <div class="person">
+      <a class="person-name" href="https://www.linkedin.com/in/fritz-dutz/" target="_blank" rel="noopener noreferrer">fritz dutz</a>
+      <p class="person-fund">target global</p>
+    </div>
+    <div class="person">
+      <a class="person-name" href="https://www.linkedin.com/in/sam-thurman/" target="_blank" rel="noopener noreferrer">sam thurman</a>
+      <p class="person-fund">futurepresent</p>
+    </div>
+    <div class="person">
+      <a class="person-name" href="https://www.linkedin.com/in/elianmcc/" target="_blank" rel="noopener noreferrer">elian mccarron</a>
+      <p class="person-fund">entrepreneur first</p>
+    </div>
+  </div>
 </body>
 </html>

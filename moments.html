@@ -15,48 +15,208 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body {
-      height: 100%;
-      overflow: hidden;
-    }
+    html, body { min-height: 100%; }
 
     body {
       background: #000;
       color: #e8e8e8;
       font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .event { width: min(420px, 90vw); }
+
+    .event-title {
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    .event-title a {
+      color: #e8e8e8;
+      text-decoration: none;
+      font-weight: 400;
+      transition: opacity 0.2s;
+    }
+
+    .event-title a:hover { opacity: 0.5; }
+
+    /* ---- slideshow ---- */
+    .slides {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      aspect-ratio: 3 / 2;
+      width: 100%;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .slides::-webkit-scrollbar { display: none; }
+
+    .slides figure {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+      height: 100%;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .controls {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 14px;
+      margin-top: 12px;
     }
 
-    .message {
-      font-size: 11px;
-      color: #444;
-      letter-spacing: 0.08em;
+    .arrow {
+      background: none;
+      border: 0;
+      color: #555;
+      font-family: inherit;
+      font-size: 13px;
+      line-height: 1;
+      padding: 4px;
+      cursor: pointer;
+      transition: color 0.2s;
     }
+
+    .arrow:hover { color: #e8e8e8; }
+
+    .dots { display: flex; gap: 6px; }
+
+    .dots button {
+      width: 5px;
+      height: 5px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #333;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .dots button[aria-current="true"] { background: #e8e8e8; }
 
     .home-mark {
-      position: absolute;
-      top: calc(50% + 226px);
-      left: 50%;
-      transform: translate(-50%, -50%);
       display: flex;
+      margin-top: 36px;
       opacity: 0.6;
       transition: opacity 0.2s;
     }
 
     .home-mark:hover { opacity: 1; }
-
     .home-mark svg { display: block; width: 18px; height: 18px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slides { scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
-  <p class="message">social #1 out soon</p>
+
+  <section class="event">
+    <p class="event-title">
+      <a href="https://luma.com/vau2a0fq" target="_blank" rel="noopener noreferrer">social #1</a>
+    </p>
+
+    <div class="slides" id="slides" tabindex="0" aria-label="social #1 photos">
+      <figure><img src="assets/moments/social-1/01.jpg" alt="social #1" loading="eager" /></figure>
+      <figure><img src="assets/moments/social-1/02.jpg" alt="social #1" loading="lazy" /></figure>
+      <figure><img src="assets/moments/social-1/03.jpg" alt="social #1" loading="lazy" /></figure>
+      <figure><img src="assets/moments/social-1/04.jpg" alt="social #1" loading="lazy" /></figure>
+      <figure><img src="assets/moments/social-1/05.jpg" alt="social #1" loading="lazy" /></figure>
+      <figure><img src="assets/moments/social-1/06.jpg" alt="social #1" loading="lazy" /></figure>
+      <figure><img src="assets/moments/social-1/07.jpg" alt="social #1" loading="lazy" /></figure>
+      <figure><img src="assets/moments/social-1/08.jpg" alt="social #1" loading="lazy" /></figure>
+      <figure><img src="assets/moments/social-1/09.jpg" alt="social #1" loading="lazy" /></figure>
+      <figure><img src="assets/moments/social-1/10.jpg" alt="social #1" loading="lazy" /></figure>
+      <figure><img src="assets/moments/social-1/11.jpg" alt="social #1" loading="lazy" /></figure>
+      <figure><img src="assets/moments/social-1/12.jpg" alt="social #1" loading="lazy" /></figure>
+    </div>
+
+    <div class="controls">
+      <button class="arrow" id="prev" aria-label="previous photo">&lt;</button>
+      <div class="dots" id="dots"></div>
+      <button class="arrow" id="next" aria-label="next photo">&gt;</button>
+    </div>
+  </section>
 
   <a class="home-mark" href="/" aria-label="back to home">
     <svg viewBox="0 0 52 52" fill="none">
       <polygon points="26,4 29.4,17.7 41.6,10.4 34.3,22.6 48,26 34.3,29.4 41.6,41.6 29.4,34.3 26,48 22.6,34.3 10.4,41.6 17.7,29.4 4,26 17.7,22.6 10.4,10.4 22.6,17.7" fill="#e8e8e8"/>
     </svg>
   </a>
+
+  <script>
+    (function () {
+      var slides = document.getElementById('slides');
+      var figures = slides.querySelectorAll('figure');
+      var dotsWrap = document.getElementById('dots');
+      var current = 0;
+
+      figures.forEach(function (_, i) {
+        var b = document.createElement('button');
+        b.setAttribute('aria-label', 'photo ' + (i + 1));
+        b.addEventListener('click', function () { go(i); });
+        dotsWrap.appendChild(b);
+      });
+      var dots = dotsWrap.querySelectorAll('button');
+
+      function paint(i) {
+        dots.forEach(function (d, n) {
+          d.setAttribute('aria-current', n === i ? 'true' : 'false');
+        });
+      }
+
+      function go(i) {
+        current = Math.max(0, Math.min(figures.length - 1, i));
+        slides.scrollTo({ left: current * slides.clientWidth, behavior: 'smooth' });
+        paint(current);
+      }
+
+      var t;
+      slides.addEventListener('scroll', function () {
+        clearTimeout(t);
+        t = setTimeout(function () {
+          current = Math.round(slides.scrollLeft / slides.clientWidth);
+          paint(current);
+        }, 60);
+      });
+
+      document.getElementById('prev').addEventListener('click', function () { go(current - 1); });
+      document.getElementById('next').addEventListener('click', function () { go(current + 1); });
+
+      slides.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); go(current - 1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(current + 1); }
+      });
+
+      window.addEventListener('resize', function () {
+        slides.scrollLeft = current * slides.clientWidth;
+      });
+
+      paint(0);
+    })();
+  </script>
+
 </body>
 </html>

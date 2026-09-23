@@ -15,7 +15,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body { min-height: 100%; }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
 
     body {
       background: #000;
@@ -24,12 +27,9 @@
       font-size: 13px;
       line-height: 1.7;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px;
       text-align: center;
-      min-height: 100vh;
     }
 
     .event { width: min(420px, 90vw); }
@@ -117,8 +117,11 @@
     .dots button[aria-current="true"] { background: #e8e8e8; }
 
     .home-mark {
+      position: absolute;
+      top: calc(50% + 226px);
+      left: 50%;
+      transform: translate(-50%, -50%);
       display: flex;
-      margin-top: 36px;
       opacity: 0.6;
       transition: opacity 0.2s;
     }

@@ -90,3 +90,32 @@ body {
   border-radius: 4px;
   width: 100%;
 }
+
+/* ─── phones ───────────────────────────────────────────────
+   Patrick's layout is three fixed-width floats, which cannot
+   fit a phone. Below 760px the floats are dropped: the menu
+   sits at the top, still right-aligned, and content runs full
+   width. Nothing else about the design changes.            */
+@media (max-width: 760px) {
+  body { margin: 16px; }
+
+  #menu {
+    float: none;
+    width: auto;
+    margin: 0 0 28px;
+    text-align: right;
+  }
+
+  #menu ul li {
+    display: inline-block;
+    margin-left: 14px;
+  }
+
+  #left { display: none; }
+
+  #content {
+    float: none;
+    width: 100%;
+    margin-top: 0;
+  }
+}

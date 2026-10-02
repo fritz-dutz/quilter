@@ -1,24 +1,123 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="/draft/style.css">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex">
-  <link rel="icon" href="/assets/favicon.ico" sizes="any">
-  <title>Quilter</title>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>quilter.</title>
+  <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: #000;
+      color: #e8e8e8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .house {
+      display: block;
+      width: min(420px, 90vw);
+      margin-bottom: 32px;
+    }
+
+    .content {
+      width: min(337px, 72.3vw);
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 400;
+      color: #555;
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .title {
+      font-size: clamp(13px, 4.6vw, 20px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      white-space: nowrap;
+    }
+
+    .cursor {
+      animation: blink 1.2s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .location {
+      color: #555;
+      font-size: 11px;
+      margin-bottom: 40px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding-top: 20px;
+      position: relative;
+    }
+
+    .nav .about-link {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav a {
+      font-size: 11px;
+      font-weight: 700;
+      color: #e8e8e8;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+
+    .nav a:hover { opacity: 0.5; }
+  </style>
 </head>
 <body>
-<div id="menu">
-<span class="title">Quilter</span>
-<ul>
-  <li><a href="/draft/social-1">Social #1</a></li>
-  <li><a href="/draft/slush-brekkie">Slush brekkie</a></li>
-  <li><a href="/draft/about">About us</a></li>
-</ul>
-</div>
-<div id="left">&nbsp;</div>
-<div id="content">
 
-</div>
+  <img class="house" src="/assets/house.png" alt="quilter, the venture house" />
+
+  <div class="content">
+    <p class="eyebrow">// welcome to</p>
+    <p class="title">quilter, the venture house<span class="cursor">.</span></p>
+    <p class="location">Shoreditch, London</p>
+
+    <nav class="nav">
+      <a href="https://luma.com/quilter" target="_blank" rel="noopener noreferrer">luma</a>
+      <a href="/draft/about" class="about-link">about us</a>
+      <a href="/draft/moments">moments</a>
+    </nav>
+  </div>
+
 </body>
 </html>

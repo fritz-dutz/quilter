@@ -1,102 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>about us</title>
-  <link rel="icon" href="assets/favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      height: 100%;
-      overflow: hidden;
-    }
-
-    body {
-      background: #000;
-      color: #e8e8e8;
-      font-family: 'JetBrains Mono', monospace;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .home-mark {
-      position: absolute;
-      top: calc(50% + 226px);
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      opacity: 0.6;
-      transition: opacity 0.2s;
-    }
-
-    .home-mark:hover { opacity: 1; }
-
-    .home-mark svg { display: block; width: 18px; height: 18px; }
-
-    .team {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px 48px;
-      max-width: min(480px, 90vw);
-    }
-
-    .person {
-      text-align: center;
-      min-width: 110px;
-    }
-
-    .person-name {
-      display: block;
-      font-size: 11px;
-      font-weight: 700;
-      color: #e8e8e8;
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: opacity 0.2s;
-      margin-bottom: 4px;
-    }
-
-    .person-name:hover { opacity: 0.5; }
-
-    .person-fund {
-      font-size: 11px;
-      font-weight: 400;
-      color: #555;
-      letter-spacing: 0.05em;
-    }
-  </style>
+  <link rel="stylesheet" href="/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <title>About us</title>
 </head>
 <body>
-  <a class="home-mark" href="/" aria-label="back to home">
-    <svg viewBox="0 0 52 52" fill="none">
-      <polygon points="26,4 29.4,17.7 41.6,10.4 34.3,22.6 48,26 34.3,29.4 41.6,41.6 29.4,34.3 26,48 22.6,34.3 10.4,41.6 17.7,29.4 4,26 17.7,22.6 10.4,10.4 22.6,17.7" fill="#e8e8e8"/>
-    </svg>
-  </a>
+<div id="menu">
+<span class="title"><a href="/">Quilter</a></span>
+<ul>
+  <li><a href="/social-1">Social #1</a></li>
+  <li><a href="/slush-brekkie">Slush brekkie</a></li>
+  <li><a href="/about">About us</a></li>
+</ul>
+</div>
+<div id="left">&nbsp;</div>
+<div id="content">
 
-  <div class="team">
-    <div class="person">
-      <a class="person-name" href="https://www.linkedin.com/in/fritz-dutz/" target="_blank" rel="noopener noreferrer">fritz dutz</a>
-      <p class="person-fund">target global</p>
-    </div>
-    <div class="person">
-      <a class="person-name" href="https://www.linkedin.com/in/elianmcc/" target="_blank" rel="noopener noreferrer">elian mccarron</a>
-      <p class="person-fund">entrepreneur first</p>
-    </div>
-    <div class="person">
-      <a class="person-name" href="https://www.linkedin.com/in/sam-thurman/" target="_blank" rel="noopener noreferrer">sam thurman</a>
-      <p class="person-fund">futurepresent</p>
-    </div>
-  </div>
+<p class="notop">Hi reader,</p>
+
+<p>Thanks for stopping by!</p>
+
+<p>We are Quilter, a venture house in Shoreditch, London.</p>
+
+<p>We enjoy bringing exciting personalities together for drinks, poker nights, fireside chats (next to our fireplace) or whatever it may be.</p>
+
+<p>That's it. Nothing less. Nothing more.</p>
+
+<p>Much love,<br>
+<a href="https://x.com/fritz_dutz" target="_blank" rel="noopener noreferrer">Fritz</a>, <a href="https://www.linkedin.com/in/sam-thurman/" target="_blank" rel="noopener noreferrer">Sam</a> &amp; <a href="https://x.com/elian_mcc" target="_blank" rel="noopener noreferrer">Elian</a></p>
+
+</div>
 </body>
 </html>

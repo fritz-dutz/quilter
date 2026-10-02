@@ -40,11 +40,17 @@ body {
   padding: 0;
 }
 
+/* same margin-top as #menu, so the first line of content sits level
+   with the Quilter wordmark rather than above it */
 #content {
-  margin-top: 15px;
+  margin-top: 30px;
   float: left;
   width: 500px;
 }
+
+/* belt and braces: whatever lands first in the column never adds its
+   own top margin, so the alignment holds on every page */
+#content > *:first-child { margin-top: 0; }
 
 #content .byline, #content .byline a, #content .note {
   font-size: 10px;

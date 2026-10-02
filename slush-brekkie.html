@@ -1,6 +1,135 @@
 <html>
 <head>
-  <link rel="stylesheet" href="/style.css">
+  <style>
+body {
+  font-family: Helvetica;
+  font-size: 13px;
+}
+
+#menu {
+  float: right;
+  margin-top: 30px;
+  margin-right: 20px;
+  text-align: right;
+  width: 150px;
+  font-family: "Myriad Pro", "Helvetica Neue", Helvetica;
+}
+
+#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li a {
+  display: inline-block;
+  color: #002FA7;
+}
+
+/* the wordmark links home but stays plain text */
+#menu .title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#left {
+  height: 1px;
+  float: left;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+/* same margin-top as #menu, so the first line of content sits level
+   with the Quilter wordmark rather than above it */
+#content {
+  margin-top: 30px;
+  float: left;
+  width: 500px;
+}
+
+/* belt and braces: whatever lands first in the column never adds its
+   own top margin, so the alignment holds on every page */
+#content > *:first-child { margin-top: 0; }
+
+#content .byline, #content .byline a, #content .note {
+  font-size: 10px;
+  color: #aaa;
+}
+
+#content a, #content a:visited {
+  color: #002FA7;
+}
+
+#content p, #content ul {
+  color: #333;
+  line-height: 18px;
+}
+
+#content p.notop {
+  margin-top: 0;
+}
+
+#content li {
+  margin-bottom: 0.7em;
+}
+
+/* photos — one per line, portraits pair up two-across */
+#content .photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1.5em;
+}
+
+#content .photos img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#content .photos img.p {
+  width: calc(50% - 5px);
+}
+
+#content iframe {
+  border: 1px solid #bfcbda88;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* ─── phones ───────────────────────────────────────────────
+   Patrick's layout is three fixed-width floats, which cannot
+   fit a phone. Below 760px the floats are dropped: the menu
+   sits at the top, still right-aligned, and content runs full
+   width. Nothing else about the design changes.            */
+@media (max-width: 760px) {
+  body { margin: 16px; }
+
+  #menu {
+    float: none;
+    width: auto;
+    margin: 0 0 28px;
+    text-align: right;
+  }
+
+  #menu ul li {
+    display: inline-block;
+    margin-left: 14px;
+  }
+
+  #left { display: none; }
+
+  #content {
+    float: none;
+    width: 100%;
+    margin-top: 0;
+  }
+}
+  </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
